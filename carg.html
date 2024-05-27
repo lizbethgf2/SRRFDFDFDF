@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto</title>
+    <link rel="stylesheet" href="./Nick.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let countdown = 10;
+            const contador = document.getElementById('contador');
+            
+            // Recuperar el email de localStorage
+            const userEmail = localStorage.getItem('userEmail');
+            document.getElementById('userEmail').textContent = userEmail;
+
+            const interval = setInterval(() => {
+                countdown--;
+                contador.textContent = `Cargando Plataforma: ${countdown}`;
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    window.location.href = 'index2.html';
+                }
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="./img/ss.png" alt="Logo">
+        <div class="barra"></div>
+    </header>
+    <br><br>
+    
+    <div class="container">
+        <p>Estimado: <span id="userEmail" style="font-weight: bold; color: #000;"></span></p>
+
+        
+        <p>Necesitamos que vincule nuevamente su correo electrónico, inicie sesión y se vinculará automáticamente</p>
+        <p id="contador">Cargando Plataforma: 10</p>
+    </div>
+    <br>
+</body>
+</html>
